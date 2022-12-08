@@ -1,6 +1,6 @@
 import types
 from lime.utils.generic_utils import has_arg
-from skimage.segmentation import felzenszwalb, slic, quickshift
+from skimage.segmentation import felzenszwalb, slic, quickshift, random_walker
 
 
 class BaseWrapper(object):
@@ -108,6 +108,11 @@ class SegmentationAlgorithm(BaseWrapper):
         elif (self.algo_type == 'slic'):
             BaseWrapper.__init__(self, slic, **target_params)
             kwargs = self.filter_params(slic)
+            self.set_params(**kwargs)
+        elif (self.algo_type == 'randomwalker'):
+            print("customized segmentation")
+            BaseWrapper.__init__(self, random_walker, **target_params)
+            kwargs = self.filter_params(random_walker)
             self.set_params(**kwargs)
 
     def __call__(self, *args):
