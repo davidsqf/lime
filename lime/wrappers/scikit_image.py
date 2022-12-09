@@ -98,18 +98,21 @@ class SegmentationAlgorithm(BaseWrapper):
     def __init__(self, algo_type, **target_params):
         self.algo_type = algo_type
         if (self.algo_type == 'quickshift'):
+            print("customized segmentation")
             BaseWrapper.__init__(self, quickshift, **target_params)
             kwargs = self.filter_params(quickshift)
             self.set_params(**kwargs)
         elif (self.algo_type == 'felzenszwalb'):
+            print("customized segmentation")
             BaseWrapper.__init__(self, felzenszwalb, **target_params)
             kwargs = self.filter_params(felzenszwalb)
             self.set_params(**kwargs)
         elif (self.algo_type == 'slic'):
+            print("customized segmentation")
             BaseWrapper.__init__(self, slic, **target_params)
             kwargs = self.filter_params(slic)
             self.set_params(**kwargs)
-        elif (self.algo_type == 'watershed'):
+        elif (self.algo_type == 'test'):
             print("customized segmentation")
             BaseWrapper.__init__(self, quickshift, **target_params)
             kwargs = self.filter_params(quickshift)
