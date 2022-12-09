@@ -114,8 +114,8 @@ class SegmentationAlgorithm(BaseWrapper):
             self.set_params(**kwargs)
         elif (self.algo_type == 'test'):
             print("customized segmentation")
-            BaseWrapper.__init__(self, quickshift, **target_params)
-            kwargs = self.filter_params(quickshift)
+            BaseWrapper.__init__(self, watershed, **target_params)
+            kwargs = self.filter_params(watershed)
             self.set_params(**kwargs)
 
     def __call__(self, *args):
